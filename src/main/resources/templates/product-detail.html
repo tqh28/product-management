@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	
+	<head lang="en" th:replace="fragments/header :: header"></head>
+	
+	<body>
+		<div class="container">
+
+			<div th:if="${showSuccessText}" class="alert alert-success">
+				<strong>SUCCESS!</strong>
+			</div>
+	
+			<div class="form-group">
+				<label> Product name: </label>
+				<input type="text" th:value="${name}" class="form-control" disabled="disabled"/>
+			</div>
+			
+			<div class="form-group">
+				<label> Product code: </label>
+				<input type="text" th:value="${code}" class="form-control" disabled="disabled"/>
+			</div>
+			
+			<div class="form-group">
+				<label> Price: </label>
+				<input type="text" th:value="${price}" class="form-control" disabled="disabled"/>
+			</div>
+			
+			<div style="height: 15px;"></div>
+			<div class="form-group">
+				<input type="button" value="Check Stock" th:onclick="'checkInStock(\'' + ${code} + '\')'" class="btn btn-info"/>
+			</div>
+			
+		</div>
+	</body>
+	
+	<div th:replace="fragments/footer :: footer"></div>
+
+</html>
+
+
+

@@ -1,0 +1,48 @@
+<head th:fragment="header">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common.js}"></script>
+	<script type="text/javascript" th:src="@{/js/constant.js}"></script>
+	
+	<link rel="stylesheet" type="text/css"
+		th:href="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.css}"></link>
+	<link rel="stylesheet" type="text/css"
+		th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"></link>
+	<link rel="stylesheet" type="text/css"
+		th:href="@{/css/custom.css}"></link>
+		
+	<title>Product Management</title>
+
+
+	<div class="navbar navbar-default" style="height: 50px;">
+		<div class="container" >
+			<div class="navbar-header">
+				<a class="navbar-brand" th:href="@{/}">Product Management</a>
+			</div>
+			
+			<div sec:authorize="isAuthenticated()" class="dropdown">
+				<div class="dropdown">
+					<button class="dropbtn" th:text="${#authentication.getPrincipal().getUsername()}"></button>
+					<div class="dropdown-content">
+						<a sec:authorize="hasAuthority('ROLE_ADMIN')" class="btn-link" th:href="@{/admin/unlock-account}">
+							Unlock account
+						</a>
+<!-- 						<a class="btn-link" th:href="@{/change-password}"> -->
+<!-- 							Change password -->
+<!-- 						</a> -->
+						<form th:action="@{/logout}" method="post" class="btn-link">
+							<input type="submit" value="Sign out" class="btn-link"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+</head>

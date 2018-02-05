@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+	<head lang="en" th:replace="fragments/header :: header"></head>
+	<script type="text/javascript" th:src="@{js/create-account.js}"></script>
+	
+	<body>
+		<div class="container">
+		
+			<form th:action="@{/create-account-action}" method="post">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input name="username" class="form-control" type="text" placeholder="Username" autofocus="autofocus"/>
+				</div>
+				
+				<div style="height: 10px;"></div>
+				
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input id="password" type="password" class="form-control" name="password" placeholder="Password"/>
+				</div>
+				
+				<div style="height: 5px;"></div>
+				
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					<input id="confirmPassword" type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"/>
+				</div>
+				
+				<div style="height: 15px;"></div>
+				
+				<div style="text-align: center;">
+					<input class="btn btn-primary" type="submit" value="Create" />
+				</div>
+			</form>
+			
+			
+			<div th:replace="fragments/footer :: footer"></div>
+			
+		</div>
+	</body>
+</html>

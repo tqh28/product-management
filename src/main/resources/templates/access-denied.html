@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	
+	<head lang="en" th:replace="fragments/header :: header"></head>
+	
+	<body>
+		<div class="container">
+			<div id="delete-error-msg" class="alert alert-danger">
+				<h1>ACCESS IS DENIED!</h1>
+			</div>
+		</div>
+	</body>
+
+	<div th:replace="fragments/footer :: footer"></div>
+</html>

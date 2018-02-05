@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	
+	<head lang="en" th:replace="fragments/header :: header"></head>
+
+	<script th:src="@{/webjars/datatables/1.10.16/js/jquery.dataTables.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/unlock-account.js}"></script>
+	<link rel="stylesheet" type="text/css"
+		th:href="@{/webjars/datatables/1.10.16/css/jquery.dataTables.min.css}"></link>
+	
+	<body>
+		<div class="container">
+		
+			<div id="unlock-success-msg" class="alert alert-success" style="display: none;">
+				<strong>UNLOCK ACCOUNT SUCCESS!</strong>
+				<p id="unlock-success-msg-detail"></p>
+			</div>
+			<div id="unlock-error-msg" class="alert alert-danger" style="display: none;">
+				<strong>UNLOCK ACCOUNT ERROR!</strong>
+				<p id="unlock-error-msg-detail"></p>
+			</div>
+		
+			<table id="table-user" class="display" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>Username</th>
+						<th>Inactive time</th>
+						<th>Unlock</th>
+					</tr>
+				</thead>
+			</table>
+			
+			<div style="height: 10px;"></div>
+			
+			<div class="form-group" style="text-align: center;">
+				<input id="refresh-button" type="button" value="Refresh" class="btn btn-info"/>
+			</div>
+
+		</div>
+		
+		<div id="unlock-dialog-confirm" title="Unlock this account?" style="display: none;">
+			<p>
+				<span class="ui-icon ui-icon-alert"
+					style="float: left; margin: 12px 12px 20px 0;">
+				</span>
+				
+				The account: <span id="unlock-dialog-confirm-detail"></span>
+				will be unlocked.
+				<br/>Are you sure?
+			</p>
+		</div>
+		
+	</body>
+	
+	<div th:replace="fragments/footer :: footer"></div>
+
+</html>
