@@ -7,13 +7,13 @@ pipeline {
 				sh 'mvn build'
 			}
 		}
-		post {
-			always {
-				echo 'Always run line'
-			}
-			success {
-				echo 'Success line'
-			}
-		}	
+	}
+	post {
+		always {
+			echo 'Always run line'
+		}
+		success {
+			echo 'Success line'
+		}
 	}
 }
